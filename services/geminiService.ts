@@ -33,7 +33,7 @@ export const getChatSession = (lang: Language): Chat => {
   // If language changed or no session, create new one
   if (!chatSession || currentLang !== lang) {
     currentLang = lang;
-    const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     chatSession = ai.chats.create({
       model: 'gemini-2.5-flash',
       config: {
